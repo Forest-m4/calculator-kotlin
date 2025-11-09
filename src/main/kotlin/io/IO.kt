@@ -1,4 +1,8 @@
-package org.example.io
+package io
 
-class IO {
+import org.w3c.dom.Text
+
+interface IO {
+    fun read(): String
+    fun write(text: String)
 }

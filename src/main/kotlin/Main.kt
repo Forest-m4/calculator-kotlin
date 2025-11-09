@@ -1,9 +1,12 @@
 import io.Console_IO
 import io.IO
 import utils.toBase
+import java.io.PrintStream
 
 fun main() {
 
+    // Вкл русский язык
+    System.setOut(PrintStream(System.out, true, "UTF-8"))
     val io: IO = Console_IO()
     val base = 2 //система исчил
 

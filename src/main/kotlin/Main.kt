@@ -15,7 +15,7 @@ fun main() {
     while (true) {
         val inputLine = io.read()
         val input = inputLine.replace(" ", "") // удаляем все пробелы
-        
+
         var result: Long = 0
         var errorMessage = ""
         var operator: Char? = null
@@ -36,6 +36,10 @@ fun main() {
 
         try {
             val parts = input.split(operator)
+            
+            if (parts.size != 2) {
+                throw Exception("Неверный формат")
+            }
 
             val a = parts[0].toLongOrNull() ?: throw Exception("Первое число некорректно")
             val b = parts[1].toLongOrNull() ?: throw Exception("Второе число некорректно")

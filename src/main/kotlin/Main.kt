@@ -13,8 +13,9 @@ fun main() {
     println("Введи выражения типа 12 + 5. Напиши stop чтобы выйти.")
 
     while (true) {
-        val input = io.read()
-
+        val inputLine = io.read()
+        val input = inputLine.replace(" ", "") // удаляем все пробелы
+        
         var result: Long = 0
         var errorMessage = ""
         var operator: Char? = null

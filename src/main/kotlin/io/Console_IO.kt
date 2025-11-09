@@ -1,6 +1,6 @@
 package io
 
-class ConsoleIo : IO {
+class Console_IO : IO {
     override fun read(): String {
         return readln()  // читает строку с клавиатуры
     }

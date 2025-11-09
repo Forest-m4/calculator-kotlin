@@ -1,13 +1,26 @@
 import io.Console_IO
+import io.File_IO
 import io.IO
 import utils.toBase
 import java.io.PrintStream
+import java.io.File
 
 fun main() {
 
     // Вкл русский язык
     System.setOut(PrintStream(System.out, true, "UTF-8"))
-    val io: IO = Console_IO()
+
+    println("Вы хотите использовать консоль (1) или файл (2)?")
+    val choice = readln()
+
+    val io: IO = if (choice == "2") {
+        // очистить файл output перед записью
+        File("output.txt").writeText("")
+        File_IO("input.txt", "output.txt") // работа с файлами
+    } else {
+        Console_IO() // работа с консолью
+    }
+
     val base = 2 //система исчил
 
     println("Введи выражения типа 12 + 5. Напиши stop чтобы выйти.")
@@ -65,10 +78,10 @@ fun main() {
         }
 
         if (errorMessage != "") {
-            println("Ошибка: $errorMessage")
+            io.write("Ошибка: $errorMessage")
         } else {
             val resultStr = result.toBase(base)
-            println("Результат в двоичной системе: $resultStr")
+            io.write("Результат в двоичной системе: $resultStr")
         }
     }
 }

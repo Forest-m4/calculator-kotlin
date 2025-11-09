@@ -44,8 +44,10 @@ fun main() {
                 '+' -> a + b
                 '-' -> a - b
                 '*' -> a * b
-                '/' ->  a / b
-
+                '/' -> {
+                    if (b == 0L) throw Exception("Деление на ноль")
+                    a / b
+                }
                 else -> throw Exception("Неизвестный оператор")
             }
 

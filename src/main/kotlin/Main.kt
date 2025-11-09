@@ -16,6 +16,11 @@ fun main() {
         val inputLine = io.read()
         val input = inputLine.replace(" ", "") // удаляем все пробелы
 
+        if (input.lowercase() == "stop") {
+            println("Выход из программы.")
+            break
+        }
+
         var result: Long = 0
         var errorMessage = ""
         var operator: Char? = null
@@ -36,7 +41,7 @@ fun main() {
 
         try {
             val parts = input.split(operator)
-            
+
             if (parts.size != 2) {
                 throw Exception("Неверный формат")
             }

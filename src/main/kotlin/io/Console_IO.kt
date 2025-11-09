@@ -1,11 +1,11 @@
 package io
 
-class Console_IO : IO {
+class ConsoleIo : IO {
     override fun read(): String {
-        return readlnOrNull() ?: ""
+        return readln()  // читает строку с клавиатуры
     }
 
     override fun write(text: String) {
-        println(text)
+        println(text)    // выводит текст в консоль
     }
 }
